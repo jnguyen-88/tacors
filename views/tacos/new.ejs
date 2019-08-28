@@ -1,0 +1,32 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+    <form action="/tacors" method="POST">
+        <div class="form-group">
+            <label for="name">Name of Taco Restaurant</label>
+            <input type="text" name="taco[name]" class="form-control" aria-describedby="emailHelp" placeholder="(e.g Taco Al Pastor)">
+        </div>
+        <div class="form-group">
+            <label for="name">Image URL</label>
+            <input name="taco[img]" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Description</label>
+            <input name="taco[description]" type="text" class="form-control">
+            <!-- <textarea name="taco[description]" class="form-control" rows="3" maxlength="250" placeholder="Your review helps others find out about great local businesses"></textarea> -->
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Select Your Rating</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="taco[rating]">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<% include ../partials/footer.ejs %>

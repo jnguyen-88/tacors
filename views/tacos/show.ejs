@@ -1,0 +1,41 @@
+<% include ../partials/header.ejs %>
+    <div id="show-container">
+        <div class="show-top">
+            <img src="<%=taco.img%>">
+            <div class="desc-box">
+                <h3><%= taco.name %></h3>
+                <p class="desc-text"><%= taco.description %></p>
+                <p class="desc-text">Created  by: <%= taco.user.username %></p>
+            </div>
+            <a href='/tacors' class="btn btn-show">Back</a>
+            <a href='/tacors/<%=taco._id%>/comments/new' class="btn btn-show">Add Review</a>
+
+            <% if(currentUser && taco.user.id.equals(currentUser._id)) { %>
+                <a href='/tacors/<%=taco._id%>/edit' class="btn btn-show">Edit Post</a>
+                <form action='/tacors/<%=taco._id%>?_method=DELETE' method="POST" >
+                    <button class="btn btn-show">Delete</button>
+                </form>
+            <% } %>
+
+        </div>
+        <div class="show-bottom">
+            <div class="review-box">
+                <% taco.comments.forEach((comment) => { %>
+                    <div>
+                        <%= comment.text %>
+                        <p><strong><%= comment.user.username %></strong></p>
+                        <span class="text-right">10 days ago</span>
+                    </div>
+
+                    <% if(currentUser && comment.user.id.equals(currentUser._id)) { %>
+                        <a href="/tacors/<%=taco._id%>/comments/<%=comment._id%>/edit">Edit</a>
+                        <form action='/tacors/<%=taco._id%>/comments/<%=comment._id%>?_method=DELETE' method="POST" >
+                            <button class="btn btn-show">Delete</button>
+                        </form>
+                    <% } %>
+
+                <% }) %>
+            </div>
+        </div>
+    </div>
+<% include ../partials/footer.ejs %>

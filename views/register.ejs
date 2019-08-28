@@ -1,0 +1,22 @@
+<% include ./partials/header.ejs %>
+    <header id="signin-header">
+        <div class="signin-box">
+                <div class='icon-box'>
+                    <i class="flaticon-taco"></i>
+                </div>
+                <ul class="signup-toggle-box">
+                    <li class="signup-toggle mr-3"><button class="signup-btn">Sign In</button></li>
+                    <li class="signup-toggle"><button class="signup-btn">Sign Up</button></li>
+                </ul>
+                <form action="/register" method="POST" class="signin-form">
+                    <div class="form-group mb-4">
+                        <input type="text" name="username" class="form-control form-control-lg" placeholder="username">
+                    </div>
+                    <div class="form-group mb-4 mt-4">
+                        <input type="password" name="password" class="form-control form-control-lg" placeholder="password">
+                    </div>
+                    <input type="submit" value="Sign Up" class="btn btn-outline-light btn-block" id="sign-btn">
+                </form>
+        </div>
+    </header>
+<% include ./partials/footer.ejs %>

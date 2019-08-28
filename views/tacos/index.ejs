@@ -1,0 +1,30 @@
+<% include ../partials/header.ejs %>
+<header id="index-header">
+</header>
+<main>
+    <h2>Restaurants</h2>
+    <div class="row">
+        <% tacos.forEach((taco) => { %>
+            <div class="card col-md-4 col-sm-12">
+                <img class="card-img" src="<%= taco.img %>">
+                <div class="card-body">
+                    <div class="card-text">
+                        <div class="heading-5">
+                            <h5 class="card-title"><%= taco.name %> </h5>
+                        </div>
+                        <p class="card-desc"><%= taco.description %></p>
+                        <div><span>Rating:<%= taco.rating %></span><i class="fas fa-star"></i></div>
+                        <div><span>Price:</span><i class="fas fa-dollar-sign"></i></div>
+                        <div><span>Reviews:</span><i class="fas fa-user-friends"></i></div>
+                    </div>
+                    <div class="btn-group">
+                        <a href="/tacors/<%= taco._id%>" class="btn mr-3">View More</a>
+                        <a href="/tacors/<%= taco._id%>/comments/new" class="btn">Leave a Review</a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</main>
+
+<% include ../partials/footer.ejs %>
