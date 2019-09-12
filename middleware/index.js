@@ -13,6 +13,7 @@ const middlewareObj = {
                     if(comment.user.id.equals(req.user._id)){
                         next()
                     } else {
+                        req.flash('error', "You don't have permission to do that")
                         res.redirect("back")
                     }
                 }
@@ -25,11 +26,13 @@ const middlewareObj = {
         if(req.isAuthenticated()){ // checks if a user is logged in
             Taco.findById(req.params.id, (err, taco) => {
                 if(err){
+                    req.flash('error', 'Taco shop not found')
                     res.redirect("back")
                 } else {
                     if(taco.user.id.equals(req.user._id)){
                         next()
                     } else {
+                        req.flash('error', "You don't have permission to do that")
                         res.redirect("back")
                     }
                 }
@@ -42,6 +45,7 @@ const middlewareObj = {
         if(req.isAuthenticated()){
             return next()
         } else {
+            req.flash('error', 'You must be logged in')
             res.redirect('/login')
         }
     }

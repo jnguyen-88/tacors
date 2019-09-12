@@ -1,8 +1,17 @@
 <% include ../partials/header.ejs %>
+
+<!-- Header -->
 <header id="index-header">
 </header>
+
+
+<!-- Main -->
 <main>
-    <h2>Restaurants</h2>
+    <div style="text-align: center">
+        <h2>Restaurants</h2>
+        <a href="/tacors/new" style="font-size:2rem">Add a Business</a>
+    </div>
+
     <div class="row">
         <% tacos.forEach((taco) => { %>
             <div class="card col-md-4 col-sm-12">

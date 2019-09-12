@@ -23,7 +23,7 @@ const User = require('../models/user.js');
 
 // Login
 router.get('/login', (req, res) => {
-    res.render('login.ejs')
+    res.render('login.ejs');
 });
 
 router.post('/login', passport.authenticate("local", 
@@ -42,10 +42,11 @@ router.post('/register', (req, res) => {
     var newUser = new User({username: req.body.username});
     User.register(newUser, req.body.password, (err, user) => {
         if(err){
-            console.log(err)
-            return res.render('register.ejs')
+            req.flash("error", err.message);
+            return res.redirect("/register"); // don't res.render
         }
         passport.authenticate('local')(req, res, ()=> {
+            req.flash('success', `Welcome to Tacors ${user.username}!`)
             res.redirect('/tacors')
         })
     });
@@ -54,6 +55,7 @@ router.post('/register', (req, res) => {
 // Logout
 router.get('/logout', (req, res) => {
     req.logout();
+    req.flash("success", `See you next time!`);
     res.redirect('/tacors');
 });
 

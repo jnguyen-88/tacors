@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
         if(!tacos){
             console.log('no tacos found')
         } else {
-            res.render('tacos/index.ejs', {tacos: tacos, currentUser: req.user}) // Passport checks req.user obj. if no req.user it returns 'undef'
+            res.render('tacos/index.ejs', {tacos: tacos, currentUser: req.user, message: req.flash('signupMessage')}) // Passport checks req.user obj. if no req.user it returns 'undef'
         }
     });
 });
@@ -30,12 +30,16 @@ router.post('/', middlewareObj.isLoggedIn, (req, res) => {
     }
     var name = req.body.taco.name
     var img = req.body.taco.img
-    var desc = req.body.taco.description
-    var rating = req.body.taco.rating
-    var newTaco = {name: name, img: img, description: desc, rating, user}
+    var address = req.body.taco.address
+    var state = req.body.taco.state
+    var zip = req.body.taco.zip
+    var city = req.body.taco.city
+    var newTaco = {name: name, img, address, state, zip, city}
     Taco.create(newTaco, (err, taco) => {
         if(err){
             console.log(err)
+            req.flash("error", err._message)
+            res.redirect('/tacors')
         } else {
             res.redirect('/tacors')
         }

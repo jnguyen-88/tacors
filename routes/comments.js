@@ -32,6 +32,7 @@ router.post('/', middlewareObj.isLoggedIn, (req, res) => {
                     
                     taco.comments.push(comment)
                     taco.save()
+                    req.flash('success', 'Comment added')
                     res.redirect(`/tacors/${taco._id}`)
                 }
             })
@@ -55,6 +56,7 @@ router.put('/:comment_id', middlewareObj.checkCommentOwnership, (req, res) => {
             console.log(err)
             res.redirect("back")
         } else {
+            req.flash('success', 'Updated comment')
             res.redirect(`/tacors/${req.params.id}`)
         }
     })
@@ -66,6 +68,7 @@ router.delete('/:comment_id', middlewareObj.checkCommentOwnership, (req, res) =>
         if(err){
             res.send(`Couldn't delete Comment`)
         } else {
+            req.flash('success', 'Comment deleted')
             res.redirect('/tacors/' + req.params.id)
         }
     })

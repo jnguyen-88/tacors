@@ -26,7 +26,9 @@ const tacoSchema = new mongoose.Schema({
         username: String
     },
     address: String,
-    description: String,
+    zip: String,
+    state: String,
+    city: String,
     rating: Number
 });
 
