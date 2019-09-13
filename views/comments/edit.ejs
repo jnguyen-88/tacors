@@ -1,15 +1,15 @@
 <% include ../partials/header.ejs %>
 
-<div class="container">
+<div class="container form-container">
     <h1>Edit Your Comment</h1>
     <form action="/tacors/<%= taco_id%>/comments/<%=comment._id%>?_method=PUT" method="POST">
         <div class="form-group">
             <label for="name">Comment</label>
-            <input type="text" name="comment[text]" class="form-control" value="<%=comment.text%>">
+            <textarea class="form-control" rows="5" name="comment[text]" required></textarea>
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Select Your Rating</label>
-            <select class="form-control" id="exampleFormControlSelect1" name="taco[rating]">
+            <select class="form-control" name="taco[rating]">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -17,7 +17,7 @@
                 <option>5</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn">Submit</button>
     </form>
 </div>
 

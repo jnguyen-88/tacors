@@ -17,7 +17,7 @@ body {
 }
 
 main {
-  padding-top: 4rem;
+  padding: 4rem 0;
   background-color:#faf5ec;
   min-height: 300px;
 }
@@ -307,16 +307,36 @@ footer {
 
   min-height: calc(90vh - 56.25px - 32px);
   background-color: #faf5ec;
-  padding: 3rem 2rem;
+  padding: 3rem 2rem 0 2rem;
   text-align: center;
-  border: 3px solid blue;
+}
+
+.show-top {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 3px solid #4E7A8F;
+  padding-bottom: 2rem;
+}
+
+.gmap_canvas {
+  text-align: center;
+}
+
+.comment-container {
+  border: 1px solid #986B3E;
   width: 70%;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.comment-container:not(:last-of-type){
+  padding-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .show-bottom {
+  margin-top: 2rem;
   flex: 0 0 30%;
-  border: 2px solid red;
 }
 
 .img-frame {
@@ -332,12 +352,62 @@ footer {
   font-size:1.5rem;
 }
 
+.btn-group {
+  margin-bottom: 2rem;
+}
+
+.btn-group > *:not(:last-child) {
+  margin-right: 5px;
+}
+
+.desc-address {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size:1.5rem;
+  margin-bottom: 0;
+}
+
+.desc-state {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size:1.5rem;
+  margin-bottom: 0;
+}
+
+.comment-user {
+  font-size: 1rem;
+  text-decoration: underline;
+  color: #4E7A8F;
+}
+
+.comment-box-text {
+  font-size: 1.3rem;
+}
+
 .btn {
   font-size: 1.25rem;
 }
 
 .btn-show {
   font-size: 1.25rem;
+  font-family: "SFMono-Regular";
+  text-transform: uppercase;
+}
+
+.btn-delete {
+  border: none;
+  font-family: "Permanent Marker";
+  color: #007bff;
+  background-color: transparent;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.btn-delete:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+select[name="taco[rating]"]{
+  width: 10%;
 }
 
 
@@ -351,6 +421,11 @@ footer {
 .form-container {
   padding-top: 4rem;
   padding-bottom: 4rem;
+}
+
+/* Google Maps */
+.mapouter {
+  margin: 0 auto;
 }
 
 @media(min-width: 550px) {

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Taco = require('../models/taco.js');
 const Comment = require('../models/comment.js');
-const middlewareObj = require('../middleware/index.js')
+const middlewareObj = require('../middleware/index.js');
 
 //================
 // Routes
@@ -34,7 +34,8 @@ router.post('/', middlewareObj.isLoggedIn, (req, res) => {
     var state = req.body.taco.state
     var zip = req.body.taco.zip
     var city = req.body.taco.city
-    var newTaco = {name: name, img, address, state, zip, city}
+    var newTaco = {user, name: name, img, address, state, zip, city}
+
     Taco.create(newTaco, (err, taco) => {
         if(err){
             console.log(err)
@@ -68,16 +69,19 @@ router.put('/:id', middlewareObj.checkTacoOwnership, (req, res) => {
         if(err){
             console.log(err)
         } else {
+            req.flash("success", "Successfully Updated!")
             res.redirect('/tacors/' + req.params.id)
         }
     })
 });
 
+// Delete Route
 router.delete('/:id', middlewareObj.checkTacoOwnership, (req, res) => {
     Taco.findById(req.params.id, (err, taco, next) => {
         if(err) return next(err);
 
         taco.remove()
+        req.flash("success", "Business Deleted")
         res.redirect('/tacors')
     })
 });
