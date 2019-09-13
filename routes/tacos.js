@@ -34,7 +34,8 @@ router.post('/', middlewareObj.isLoggedIn, (req, res) => {
     var state = req.body.taco.state
     var zip = req.body.taco.zip
     var city = req.body.taco.city
-    var newTaco = {user, name: name, img, address, state, zip, city}
+    var desc = req.body.taco.desc
+    var newTaco = {user, name, img, address, state, zip, city, desc}
 
     Taco.create(newTaco, (err, taco) => {
         if(err){

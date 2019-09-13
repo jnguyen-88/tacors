@@ -1,21 +1,26 @@
 <% include ../partials/header.ejs %>
 
-<div class="container form-container">
+<div class="container">
     <div class="form-info">
-        <h4>Add a Business</h4>
+        <h4 class="mt-4">Add a Business</h4>
         <p>Add information about a business. Tacors will review each submission, if approved your listing will appear in a few minutes.</p>
     </div>
     
-    <form action="/tacors" method="POST">
+    <form class="form-container" action="/tacors" method="POST">
         <div class="form-row">
             <div class="form-group col-md-6">
-            <label for="inputEmail4">Name of Business</label>
-            <input type="text" name="taco[name]" class="form-control" placeholder="(e.g Taco Al Pastor)">
+                <label for="inputEmail4">Name of Business</label>
+                <input type="text" name="taco[name]" class="form-control" placeholder="(e.g Taco Al Pastor)">
             </div>
             <div class="form-group col-md-6">
-            <label for="inputPassword4">Image URL</label>
-            <input type="text" name="taco[img]" class="form-control" placeholder="https://image.com">
+                <label for="inputPassword4">Image URL</label>
+                <input type="text" name="taco[img]" class="form-control" placeholder="https://image.com">
             </div>
+        </div>
+
+        <div class="form-group">
+            <label for="comment">Description:</label>
+            <textarea class="form-control" rows="5" name="taco[desc]" required></textarea>
         </div>
 
         <!-- Details about Business -->
@@ -25,11 +30,11 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-            <label for="inputCity">City</label>
-            <input type="text" name="taco[city]" class="form-control">
+                <label for="inputCity">City</label>
+                <input type="text" name="taco[city]" class="form-control">
             </div>
-            <div class="form-group col-md-4">
-            <label for="inputState">State</label>
+                <div class="form-group col-md-4">
+                <label for="inputState">State</label>
             <select name="taco[state]" class="form-control">
                 <option selected>Choose...</option>
                 <option value="AL">Alabama</option>

@@ -29,7 +29,8 @@ const tacoSchema = new mongoose.Schema({
     zip: String,
     state: String,
     city: String,
-    rating: Number
+    rating: Number,
+    desc: String
 });
 
 // Ensures all comments associated with Taco is delete when Taco is deleted

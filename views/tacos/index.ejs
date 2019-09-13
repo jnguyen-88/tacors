@@ -9,7 +9,6 @@
 <main>
     <div style="text-align: center">
         <h2>Restaurants</h2>
-        <a href="/tacors/new" style="font-size:2rem">Add a Business</a>
     </div>
 
     <div class="row">
@@ -22,9 +21,7 @@
                             <h5 class="card-title"><%= taco.name %> </h5>
                         </div>
                         <p class="card-desc"><%= taco.description %></p>
-                        <div><span>Rating:<%= taco.rating %></span><i class="fas fa-star"></i></div>
-                        <div><span>Price:</span><i class="fas fa-dollar-sign"></i></div>
-                        <div><span>Reviews:</span><i class="fas fa-user-friends"></i></div>
+                        <div><span><%= taco.desc %></span></div>
                     </div>
                     <div class="btn-group">
                         <a href="/tacors/<%= taco._id%>" class="btn mr-3">View More</a>
