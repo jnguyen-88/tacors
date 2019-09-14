@@ -5,7 +5,7 @@
             <div class="desc-box">
                 <h3><%= taco.name %></h3>
                 <div class="detail-box">
-                    <p class="desc-address"><%= taco.address %></p>
+                    <p class="desc-address"><span><i class="fas fa-map-marker-alt"></i></span><%= taco.address %></p>
                     <p class="desc-state"><%= taco.city %>, <%= taco.state %></p>
 
                     <!-- Google Map -->
@@ -14,7 +14,7 @@
                             <iframe width="400" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=<%=(encodeURIComponent(taco.address.trim()))%>+<%=taco.zip%>&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                             </iframe>
                         </div>
-                        <style>.mapouter{position:relative;text-align:right;height:400px;width:400px;}.gmap_canvas {overflow:hidden;background:none!important;height:400px;width:400px;}
+                        <style>.mapouter{position:relative;text-align:right;}.gmap_canvas {overflow:hidden;background:none!important;}
                         </style>
                     </div>
                     <br>
@@ -29,7 +29,7 @@
                             </form>
                         <% } %>
                     </div>
-                </div>
+                </div> <!-- .detail-box -->
             </div>
         </div>
 
