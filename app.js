@@ -33,7 +33,7 @@ const currentUser = (req, res, next) => {
 // Mongoose Config
 //================
 // mongoose.connect('mongodb://localhost/tacors',{useNewUrlParser: true});
-mongoose.connect('mongodb+srv://tacors:tacorspassword@cluster0-a2ze8.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://tacors:tacorspassword@tacocluster-a2ze8.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true
 }).then(() => {
