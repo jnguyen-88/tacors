@@ -131,7 +131,6 @@ app.all('/', function(req, res){
     res.redirect('/tacors')
   });
 
-const port = 3000;
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
     console.log('Server is  up on Port ' + port)
 });
