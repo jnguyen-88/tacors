@@ -32,15 +32,15 @@ const currentUser = (req, res, next) => {
 //================
 // Mongoose Config
 //================
-mongoose.connect('mongodb://localhost/tacors',{useNewUrlParser: true});
-// mongoose.connect(process.env.MONGO_URI, {
-//     useNewUrlParser: true,
-//     useCreateIndex: true
-// }).then(() => {
-//     console.log("Connected to DB")
-// }).catch(err => {
-//     console.log("Error", err)
-// })
+// mongoose.connect('mongodb://localhost/tacors',{useNewUrlParser: true});
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+}).then(() => {
+    console.log("Connected to DB")
+}).catch(err => {
+    console.log("Error", err)
+})
 
 
 //================
