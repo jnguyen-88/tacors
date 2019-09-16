@@ -132,5 +132,5 @@ app.all('/', function(req, res){
   });
 
 app.listen(process.env.PORT, () => {
-    console.log('Server is  up on Port ' + port)
+    console.log('Server is up')
 });
