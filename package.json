@@ -20,7 +20,9 @@
     "passport-local-mongoose": "^5.0.1"
   },
   "devDependencies": {},
-  "scripts": {},
+  "scripts": {
+    "start": "node app.js"
+  },
   "author": "Justin Nguyen",
   "license": "ISC"
 }
