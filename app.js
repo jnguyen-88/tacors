@@ -33,7 +33,7 @@ const currentUser = (req, res, next) => {
 // Mongoose Config
 //================
 // mongoose.connect('mongodb://localhost/tacors',{useNewUrlParser: true});
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useCreateIndex: true
 }).then(() => {
@@ -132,7 +132,6 @@ app.all('/', function(req, res){
   });
 
 
-const port = 3000;
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
     console.log('Server is  up on Port ' + port)
 });
