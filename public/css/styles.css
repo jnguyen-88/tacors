@@ -369,7 +369,6 @@ footer {
 }
 
 .comment-container:not(:last-of-type){
-  padding-bottom: 2rem;
   margin-bottom: 1rem;
 }
 
@@ -394,8 +393,14 @@ footer {
 .btn-group {
   display: flex;
   flex-direction: column; /* hre ==============*/
-
   margin-bottom: 2rem;
+}
+
+.btn-group-comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-group > *:not(:last-child) {
@@ -443,7 +448,6 @@ footer {
 
 .btn-delete {
   border: none;
-  font-family: 'Roboto Condensed';
   color: #007bff;
   background-color: transparent;
   text-transform: uppercase;
@@ -542,6 +546,8 @@ h4:after {
       background-size: cover;
       background-position: center;
   }
+
+  
 
   .signin-box {
     width: 35%;;
